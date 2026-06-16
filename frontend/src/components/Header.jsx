@@ -11,6 +11,17 @@ const Header = () => {
           <p>New: AI feature integrated</p>
           <img src={assets.star_icon} className="w-2.5" alt="img" />
         </div>
+
+        <h1 className="text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-700">
+          Your own <span className="text-primary">blogging</span> <br />
+          platform.
+        </h1>
+
+        <p className="my-6 sm:my-8 max-w-2xl m-auto max-sm:text-xs text-gray-500">
+          This is your space to think out loud, to share what matters, and to
+          write without filters. Whether it's one word or a thousand, your story
+          starts right here.
+        </p>
       </div>
       <img
         src={assets.gradientBackground}
