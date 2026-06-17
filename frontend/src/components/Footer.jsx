@@ -1,4 +1,4 @@
-import { assets } from "../assets/assets";
+import { assets, footer_data } from "../assets/assets";
 
 const Footer = () => {
   return (
@@ -14,6 +14,23 @@ const Footer = () => {
             vero iste numquam beatae, totam reprehenderit nemo aspernatur illo
             culpa veniam!
           </p>
+        </div>
+
+        <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
+          {footer_data.map((section, index) => (
+            <div key={index}>
+              <h3 className="font-semibold text-base text-gray-900 md:mb-5 mb-2">
+                {section.title}
+              </h3>
+              <ul className="text-sm space-y-1">
+                {section.links.map((link, i) => (
+                  <li key={i}>
+                    <a href="#">{link}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
       <p className="py-4 text-center text-sm md:text-base text-gray-500/80">
