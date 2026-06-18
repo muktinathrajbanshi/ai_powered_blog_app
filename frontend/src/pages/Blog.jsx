@@ -63,7 +63,7 @@ const Blog = () => {
 
         {/* Comments Section  */}
         <div className="mt-14 mb-10 max-w-3xl mx-auto">
-          <p>Comments ({comments.length}) </p>
+          <p className="font-semibold mb-4">Comments ({comments.length}) </p>
           <div className="flex flex-col gap-4">
             {comments.map((item, index) => (
               <div
@@ -85,6 +85,22 @@ const Blog = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Add Comment Section  */}
+        <div className="max-w-3xl mx-auto">
+          <p className="font-semibold mb-4">Add your comment</p>
+          <form
+            onSubmit={addComment}
+            className="flex flex-col items-start gap-4 max-w-lg"
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              required
+              className="w-full p-2 border border-gray-300 rounded outline-none"
+            />
+          </form>
         </div>
       </div>
     </div>
