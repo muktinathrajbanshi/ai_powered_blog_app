@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { assets, blog_data } from "../assets/assets";
+import { assets, blog_data, comments_data } from "../assets/assets";
 import Navbar from "../components/Navbar";
 import Moment from "moment";
 
@@ -8,14 +8,20 @@ const Blog = () => {
   const { id } = useParams();
 
   const [data, setData] = useState(null);
+  const [comments, setComments] = useState([]);
 
   const fetchBlogData = async () => {
     const data = blog_data.find((item) => item._id === id);
     setData(data);
   };
 
+  const fetchComments = async () => {
+    setComments(comments_data);
+  };
+
   useEffect(() => {
     fetchBlogData();
+    fetchComments();
   }, []);
 
   return data ? (
@@ -54,6 +60,11 @@ const Blog = () => {
           className="rich-text max-w-3xl mx-auto"
           dangerouslySetInnerHTML={{ __html: data.description }}
         ></div>
+
+        {/* Comments Section  */}
+        <div className="mt-14 mb-10 max-w-3xl mx-auto">
+          <p>Comments ({comments.length}) </p>
+        </div>
       </div>
     </div>
   ) : (
