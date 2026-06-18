@@ -19,6 +19,10 @@ const Blog = () => {
     setComments(comments_data);
   };
 
+  const addComment = async (e) => {
+    e.preventDefault();
+  };
+
   useEffect(() => {
     fetchBlogData();
     fetchComments();
@@ -100,6 +104,16 @@ const Blog = () => {
               required
               className="w-full p-2 border border-gray-300 rounded outline-none"
             />
+
+            <textarea
+              placeholder="Comment"
+              className="w-full p-2 border border-gray-300 rounded outline-none h-48"
+            ></textarea>
+
+            <button
+              type="submit"
+              className="bg-primary text-white rounded p-2 px-8 hover:scale-102 transition-all cursor-pointer"
+            ></button>
           </form>
         </div>
       </div>
