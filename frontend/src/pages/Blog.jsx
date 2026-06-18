@@ -10,6 +10,9 @@ const Blog = () => {
   const [data, setData] = useState(null);
   const [comments, setComments] = useState([]);
 
+  const [name, setName] = useState("");
+  const [content, setContent] = useState("");
+
   const fetchBlogData = async () => {
     const data = blog_data.find((item) => item._id === id);
     setData(data);
@@ -99,6 +102,8 @@ const Blog = () => {
             className="flex flex-col items-start gap-4 max-w-lg"
           >
             <input
+              onChange={(e) => setName(e.target.value)}
+              value={name}
               type="text"
               placeholder="Name"
               required
@@ -106,6 +111,8 @@ const Blog = () => {
             />
 
             <textarea
+              onChange={(e) => setContent(e.target.value)}
+              value={content}
               placeholder="Comment"
               className="w-full p-2 border border-gray-300 rounded outline-none h-48"
             ></textarea>
@@ -113,8 +120,15 @@ const Blog = () => {
             <button
               type="submit"
               className="bg-primary text-white rounded p-2 px-8 hover:scale-102 transition-all cursor-pointer"
-            ></button>
+            >
+              Submit
+            </button>
           </form>
+        </div>
+
+        {/* Share Buttons  */}
+        <div>
+          <p>Share this article on social media</p>
         </div>
       </div>
     </div>
