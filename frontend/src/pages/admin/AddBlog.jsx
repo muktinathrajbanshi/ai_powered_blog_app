@@ -1,5 +1,10 @@
-const AddBlog = () => {
-  return <div></div>;
-};
 
-export default AddBlog;
+const AddBlog = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default AddBlog

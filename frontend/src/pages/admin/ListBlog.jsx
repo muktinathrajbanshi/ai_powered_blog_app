@@ -1,5 +1,10 @@
-const ListBlog = () => {
-  return <div></div>;
-};
 
-export default ListBlog;
+const ListBlog = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default ListBlog

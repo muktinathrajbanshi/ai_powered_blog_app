@@ -1,5 +1,10 @@
-const Comments = () => {
-  return <div></div>;
-};
 
-export default Comments;
+const Comments = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default Comments
