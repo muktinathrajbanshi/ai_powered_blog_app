@@ -61,28 +61,24 @@ const Dashboard = () => {
           <table className="w-full text-sm text-gray-500">
             <thead className="text-xs text-gray-600 text-left uppercase">
               <tr>
-                <th scope="col" className="px-2 py-4">
-                  {" "}
-                  #{" "}
+                <th scope="col" className="px-2 py-4 xl:px-6">
+                  #
                 </th>
                 <th scope="col" className="px-2 py-4">
-                  {" "}
-                  Blog Title{" "}
+                  Blog Title
+                </th>
+                <th scope="col" className="px-2 py-4 max-sm:hidden">
+                  Date
+                </th>
+                <th scope="col" className="px-2 py-4 max-sm:hidden">
+                  Status
                 </th>
                 <th scope="col" className="px-2 py-4">
-                  {" "}
-                  Date{" "}
-                </th>
-                <th scope="col" className="px-2 py-4">
-                  {" "}
-                  Status{" "}
-                </th>
-                <th scope="col" className="px-2 py-4">
-                  {" "}
-                  Actions{" "}
+                  Actions
                 </th>
               </tr>
             </thead>
+            <tbody></tbody>
           </table>
         </div>
       </div>
