@@ -21,11 +21,17 @@ const AddBlog = () => {
         <p>Upload thumbnail</p>
         <label>
           <img
-            src={assets.upload_area}
+            src={!image ? assets.upload_area : URL.createObjectURL(image)}
             alt=""
             className="mt-2 h-16 rounded cursor-pointer"
           />
-          <input type="file" id="image" hidden required />
+          <input
+            onChange={(e) => setImage(e.target.files[0])}
+            type="file"
+            id="image"
+            hidden
+            required
+          />
         </label>
       </div>
     </form>
