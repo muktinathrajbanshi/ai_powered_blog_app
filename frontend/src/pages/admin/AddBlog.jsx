@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { assets } from "../../assets/assets";
 import Quill from "quill";
 
@@ -17,6 +17,13 @@ const AddBlog = () => {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    // Initiate Quill only one
+    if (!quillRef.current && editorRef.current) {
+      quillRef.current === new Quill(editorRef.current, { theme: "snow" });
+    }
+  }, []);
 
   return (
     <form
@@ -62,6 +69,7 @@ const AddBlog = () => {
 
         <p className="mt-4">Blog Description</p>
         <div className="max-w-lg h-74 pb-16 sm:pb-10 pt-2 relative">
+          <div ref={editorRef}></div>
           <button
             type="button"
             onClick={generateContent}
