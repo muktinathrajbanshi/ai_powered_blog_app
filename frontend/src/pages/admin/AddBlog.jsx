@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { assets } from "../../assets/assets";
+import { assets, blogCategories } from "../../assets/assets";
 import Quill from "quill";
 
 const AddBlog = () => {
@@ -81,14 +81,18 @@ const AddBlog = () => {
 
         <p className="mt-4">Blog category</p>
         <select
+          onChange={(e) => setCategory(e.target.value)}
           name="category"
           className="mt-2 px-3 py-2 border text-gray-500 border-gray-300 outline-none rounded"
         >
           <option value="">Select category</option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+          {blogCategories.map((item, index) => {
+            return (
+              <option value={item} key={index}>
+                {item}
+              </option>
+            );
+          })}
         </select>
       </div>
     </form>
