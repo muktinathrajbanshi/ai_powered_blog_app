@@ -8,8 +8,15 @@ const AddBlog = () => {
   const [category, setCategory] = useState("Startup");
   const [isPublished, setIsPublished] = useState(false);
 
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className="flex-1 bg-blue-50/50 text-gray-600 h-full overflow-scroll">
+    <form
+      onSubmit={onSubmitHandler}
+      className="flex-1 bg-blue-50/50 text-gray-600 h-full overflow-scroll"
+    >
       <div className="bg-white w-full max-w-3xl p-4 md:p-10 sm:m-10 shadow rounded">
         <p>Upload thumbnail</p>
         <label>
