@@ -25,7 +25,11 @@ export const addBlog = async (req, res) => {
     // optimization through imagekit URL transformation
     const optimizeImageUrl = imagekit.baseURL({
       path: response.filePath,
-      transformation: [{ quality: "auto" }, { format: "webp" }],
+      transformation: [
+        { quality: "auto" },
+        { format: "webp" },
+        { width: "1280" },
+      ],
     });
   } catch (error) {}
 };
