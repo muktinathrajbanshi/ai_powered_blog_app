@@ -20,7 +20,7 @@ export const addBlog = async (req, res) => {
     const fileBuffer = fs.readFileSync(imageFile.path);
 
     const response = await imagekit.files.upload({
-      file: fileBuffer,
+      file: fileBuffer.toString("base64"),
       fileName: imageFile.originalname,
       folder: "/blogs",
     });
