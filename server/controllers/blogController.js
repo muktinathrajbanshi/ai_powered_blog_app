@@ -1,35 +1,51 @@
 import fs from "fs";
 import imagekit from "../config/imageKit.js";
+import Blog from "../models/Blog.js";
 
 export const addBlog = async (req, res) => {
   try {
     const { title, subTitle, description, category, isPublished } = JSON.parse(
       req.body.blog,
     );
+
     const imageFile = req.file;
 
-    // Check if all fields are present
     if (!title || !description || !category || !imageFile) {
-      return res.json({ success: false, message: "Missing required fields" });
+      return res.json({
+        success: false,
+        message: "Missing required fields",
+      });
     }
 
     const fileBuffer = fs.readFileSync(imageFile.path);
 
-    // Upload Image to ImageKit
-    const response = await imagekit.upload({
+    const response = await imagekit.files.upload({
       file: fileBuffer,
       fileName: imageFile.originalname,
       folder: "/blogs",
     });
 
-    // optimization through imagekit URL transformation
-    const optimizeImageUrl = imagekit.baseURL({
-      path: response.filePath,
-      transformation: [
-        { quality: "auto" },
-        { format: "webp" },
-        { width: "1280" },
-      ],
+    fs.unlinkSync(imageFile.path);
+
+    const image = `${process.env.IMAGEKIT_URL_ENDPOINT}${response.filePath}?tr=q-auto,w-1280,f-webp`;
+
+    await Blog.create({
+      title,
+      subTitle,
+      description,
+      category,
+      image,
+      isPublished,
     });
-  } catch (error) {}
+
+    res.json({
+      success: true,
+      message: "Blog added successfully",
+    });
+  } catch (error) {
+    res.json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
