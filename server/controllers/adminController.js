@@ -39,3 +39,10 @@ export const getAllComments = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+export const getDashboard = async (req, res) => {
+  try {
+  } catch (error) {
+    res.json({ success: false, message: error.message });
+  }
+};
