@@ -21,7 +21,7 @@ const AddBlog = () => {
   useEffect(() => {
     // Initiate Quill only one
     if (!quillRef.current && editorRef.current) {
-      quillRef.current === new Quill(editorRef.current, { theme: "snow" });
+      quillRef.current == new Quill(editorRef.current, { theme: "snow" });
     }
   }, []);
 
