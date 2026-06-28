@@ -2,6 +2,9 @@ import { assets } from "../../assets/assets";
 
 const CommentTableItem = ({ comment, fetchComments }) => {
   const { blog, createdAt, _id } = comment;
+
+  if (!blog) return null;
+
   const BlogDate = new Date(createdAt);
 
   return (
