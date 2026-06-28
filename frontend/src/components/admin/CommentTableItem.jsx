@@ -63,6 +63,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
         <div className="inline-flex items-center gap-4">
           {!comment.isApproved ? (
             <img
+              onClick={approveComment}
               src={assets.tick_icon}
               className="w-5 hover:scale-110 transition-all cursor-pointer"
             />
@@ -72,6 +73,7 @@ const CommentTableItem = ({ comment, fetchComments }) => {
             </p>
           )}
           <img
+            onClick={deleteComment}
             src={assets.bin_icon}
             alt="img"
             className="w-5 hover:scale-110 transition-all cursor-pointer"
